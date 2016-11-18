@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="author" content="帅哥/美女">
+        <title></title>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body{
+                padding: 50px 0 55px 0;
+            }
+            .navbar{
+                background-color:#390c20;
+            }
+            .nav1{
+                height: 10px;
+            }
+            .nav1 a{
+                float: right;
+                position: relative;
+                top: -40px;
+                text-decoration: none;
+                height: 40px;
+                margin: 0 0 50px 10px;
+                padding: 10px 15px 5px 15px;
+            }
+            .navbar-header>a{
+                margin-right: 30px;  
+            }
+            .banner{
+                height: 580px;
+                background-image: url(image/banner.jpg);
+                /*background-position: 50% 50%;*/
+            }
+            #carousel-generic{
+                margin-top: -450px;
+            }
+            .nav1 li,
+            .pro li,
+            .ne li{
+                display: inline;
+            }
+            .pro a,
+            .ne a{
+                position: relative;
+                top: 10px;
+                background-color: #eee;
+                float: left; 
+                margin: 0 0 50px 10px;
+                padding: 10px 15px 5px 15px;
+
+                text-align: center;
+                text-decoration: none;
+                
+                font-size: 13px;
+                color: lightslategray;
+            }
+            .pro img,
+            .ne img{
+                display: block;
+                width: 150px;
+                height: 180px;
+                margin-bottom: 2px;
+            }
+            .pro a::after,
+            .ne a::after{
+                content: attr(title);
+            }
+            .pro li a:hover,
+            .ne li a:hover{
+                transform: scale(1.0);
+                box-shadow: 0 0 6px black;
+                position: relative;
+                /*z-index: 5px;*/
+            }
+            @media (max-width:1500px){
+                .banner{
+                    height: 580px;
+                    background-position: 35% 50%;
+                    background-size: auto 120%;
+                }
+            }
+            @media (max-width:992px){
+            .banner{
+                height: 380px;
+            }
+            #carousel-generic{
+                margin-top: 0;
+            }
+            #carousel-generic>div{
+                padding-left: 10px;
+                margin-top: 15px;
+            }
+        }
+         @media (max-width:767px){
+            body{
+                padding-bottom: 0;
+            }
+            #carousel-generics>div{
+                padding: 0;
+            } 
+        }
+        @media (max-width:460px){
+            .banner{
+                height: 200px;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#">
+                        <img src="image/nav-bac.png" alt="">
+                    </a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown active">
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button">产品列表<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#One">迪士尼系列</a></li>
+                                <li><a href="#Two">礼盒</a></li>
+                                <li><a href="#Three">季节当选</a></li>
+                                <li><a href="#Four">蛋糕</a></li>
+                                <li><a href="#Five">纸杯蛋糕</a></li>
+                                <li><a href="#Six">派</a></li>
+                                <li><a href="#Seven">挞</a></li>
+                                <li><a href="#Eight">礼品盒</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#order">订购须知</a></li>
+                        <li><a href="http://www.pantrysbest.com/events">活动</a></li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">关于<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://www.pantrysbest.com/pages/huiyuan">会员</a></li>
+                                <li><a href="http://www.pantrysbest.com/pages/ninhao">我们</a></li>
+                                <li><a href="http://www.pantrysbest.com/pages/lipinka">礼品卡</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav1 navbar-nav navbar-right visible-lg-block">
+                    <li><a href="#" data-toggle="modal" data-target="#mymodal-login">登录</a></li>
+                    <li> <a href="#" data-toggle="modal" data-target="#mymodal-register">注册</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--<nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#"><img src="image/nav-bac.png" alt=""></a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">产品列表<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#One">迪士尼系列</a></li>
+                                <li><a href="#Two">礼盒</a></li>
+                                <li><a href="#Three">季节当选</a></li>
+                                <li><a href="#Four">蛋糕</a></li>
+                                <li><a href="#Five">纸杯蛋糕</a></li>
+                                <li><a href="#Six">派</a></li>
+                                <li><a href="#Seven">挞</a></li>
+                                <li><a href="#Eight">礼品盒</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#order">订购须知</a></li>
+                        <li><a href="http://www.pantrysbest.com/events">活动</a></li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">关于<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://www.pantrysbest.com/pages/huiyuan">会员</a></li>
+                                <li><a href="http://www.pantrysbest.com/pages/ninhao">我们</a></li>
+                                <li><a href="http://www.pantrysbest.com/pages/lipinka">礼品卡</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" data-toggle="modal" data-target="#mymodal-login">登录</a></li>
+                        <li> <a href="#" data-toggle="modal" data-target="#mymodal-register">注册</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>-->
+        <!--banner-->
+        <div class="banner"></div>
+        <!--carousel-->
+        <div class="container">
+            <div class="col-md-8 col-md-offset-2">
+                <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-generic" data-slide-to="3"></li>
+                        <li data-target="#carousel-generic" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active"   style="width:150%;" >
+                            <img src="image/car-1.jpg" alt="..."> 
+                        </div>
+                        <div class="item" style="width:150%;">
+                            <img src="image/car-2.jpg" alt="...">
+                        </div>
+                        <div class="item" style="width:150%;">
+                            <img src="image/car-3.jpg" alt="...">
+                        </div>
+                        <div class="item" style="width:150%;">
+                            <img src="image/car-4.jpg" alt="...">
+                        </div>
+                        <div class="item" style="width:150%;">
+                            <img src="image/car-5.jpg" alt="...">
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--产品/新品列表-->
+        <div class="accordion" id="box">
+            <div class="container">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <span class="glyphicon glyphicon-chevron-down"></span> 产品列表
+                            </a>
+                        </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                               <ul class="pro" >
+                                    <li><a href="#Two" title="Gift Box / 礼盒 "><img src="image/pro-1.jpg" alt=""></a></li>
+                                    <li><a href="#Three" title="Seasonal Specials / 季节精选 "><img src="image/pro-2.jpg" alt=""></a></li>
+                                    <li><a href="#Five" title="Cupcakes / 纸杯蛋糕 "><img src="image/pro-3.jpg" alt=""></a></li>
+                                    <li><a href="#Six" title="Pies / 派 "><img src="image/pro-4.jpg" alt=""></a></li>
+                                    <li><a href="#Eight" title="礼品卡 "><img src="image/pro-5.jpg" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <span class="glyphicon glyphicon-chevron-down"></span> 新品列表
+                            </a>
+                        </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                           <ul class="ne" >
+                                <li><a href="#tab-1" title="爱丽丝梦游仙境红丝绒蛋糕"><img src="image/npro-1.jpg" alt=""></a></li>
+                                <li><a href="#tab-4" title="红丝绒圆舞曲蛋糕"><img src="image/npro-2.jpg" alt=""></a></li>
+                                <li><a href="#tab-3" title="榴莲乳酪慕斯蛋糕"><img src="image/npro-3.jpg" alt=""></a></li>
+                                <li><a href="#tab-5" title="百香果纸杯蛋糕"><img src="image/npro-4.jpg" alt=""></a></li>
+                                <li><a href="#tab-6" title="蛋奶香蕉派"><img src="image/z-1.jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#box" href="#product">
+                            <span class="glyphicon glyphicon-chevron-down"></span> 产品列表
+                        </a> 
+                    </div>
+                    <div id="product" class="accordion-body collapse in">
+                        <div class="accordion-inner">
+                            <ul class="pro" >
+                                <li><a href="#Two" title="Gift Box / 礼盒 "><img src="image/pro-1.jpg" alt=""></a></li>
+                                <li><a href="#Three" title="Seasonal Specials / 季节精选 "><img src="image/pro-2.jpg" alt=""></a></li>
+                                <li><a href="#Five" title="Cupcakes / 纸杯蛋糕 "><img src="image/pro-3.jpg" alt=""></a></li>
+                                <li><a href="#Six" title="Pies / 派 "><img src="image/pro-4.jpg" alt=""></a></li>
+                                <li><a href="#Eight" title="礼品卡 "><img src="image/pro-5.jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#box" href="#news">
+                            <span class="glyphicon glyphicon-chevron-down"></span> 新品列表
+                        </a>
+                    </div>
+                    <div id="news" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <ul class="ne" >
+                                <li><a href="#tab-1" title="爱丽丝梦游仙境红丝绒蛋糕"><img src="image/npro-1.jpg" alt=""></a></li>
+                                <li><a href="#tab-4" title="红丝绒圆舞曲蛋糕"><img src="image/npro-2.jpg" alt=""></a></li>
+                                <li><a href="#tab-3" title="榴莲乳酪慕斯蛋糕"><img src="image/npro-3.jpg" alt=""></a></li>
+                                <li><a href="#tab-5" title="百香果纸杯蛋糕"><img src="image/npro-4.jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+         <!--导航产品列表-->
+        <div class="container">
+            <div class="tabbable  col-md-3">
+            <!--<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">-->
+                <ul class="nav nav-tabs nav-stacked">
+                    <!--active当前选中的-->
+                    <li class="dropdown">
+                        <a id="One" href="#" class="dropdown-toggle" data-toggle="dropdown" style=" background-color: #390c20;border-radius: 10px;color: white;">迪士尼系列</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tab-1" class="tab">爱丽丝梦游仙境红丝绒</a></li> 
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a id="Two" href="#" class="dropdown-toggle" data-toggle="dropdown"  style=" background-color: #390c20;border-radius: 10px;color: white;">礼盒</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tab-2" data-toggle="tab">迷你纸杯礼盒</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a id="Three" href="#" class="dropdown-toggle" data-toggle="dropdown"  style=" background-color: #390c20;border-radius: 10px;color: white;">季节当选</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tab-3" data-toggle="tab">榴莲纸杯蛋糕</a></li>
+                            <li><a href="#tab-3" data-toggle="tab">榴莲乳酪慕斯蛋糕</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a id="Four" href="#" class="dropdown-toggle" data-toggle="dropdown"  style=" background-color: #390c20;border-radius: 10px;color: white;"> 蛋糕</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tab-4" data-toggle="tab">红丝绒圆舞曲蛋糕</a></li>
+                            <li><a href="#tab-4" data-toggle="tab">热情百香果蛋糕</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a id="Five" href="#" class="dropdown-toggle" data-toggle="dropdown"  style=" background-color: #390c20;border-radius: 10px;color: white;"> 纸杯蛋糕</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tab-5" data-toggle="tab">百香果纸杯蛋糕</a></li>
+                            <li><a href="#tab-5" data-toggle="tab">百香果巧克力纸杯蛋糕</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a id="Six" href="#" class="dropdown-toggle" data-toggle="dropdown"  style=" background-color: #390c20;border-radius: 10px;color: white;"> 派</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tab-6" data-toggle="tab">蛋奶香蕉派</a></li>
+                            <li><a href="#tab-6" data-toggle="tab">综合梅果乳酪派</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a id="Seven" href="#" class="dropdown-toggle" data-toggle="dropdown"  style=" background-color: #390c20;border-radius: 10px;color: white;">  挞</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tab-7" data-toggle="tab">蜂蜜核桃挞</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a id="Eight" href="#" class="dropdown-toggle" data-toggle="dropdown"  style=" background-color: #390c20;border-radius: 10px;color: white;"> 礼品卡</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tab-8" data-toggle="tab">派悦坊礼品卡</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>  
+                <!--迪士尼系列-->
+                <!--<div class="panel panel-default col-md-3">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            迪士尼系列
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="list-group">
+                            <a href="#part-1" class="list-group-item">爱丽丝梦游仙境红丝绒</a>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="tab-content  col-md-9">
+                    <div id="tab-1" class="tab-pane active">
+                        <a href="http://www.pantrysbest.com/cities/beijing/categories/disney/products/alice-in-berryland"><img src="image/d.jpg" alt=""></a>
+                        <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:100px;top:-8px;">
+                            <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/disney/products/alice-in-berryland" target="_blank">爱丽丝梦游仙境红丝绒蛋糕</a></h4>
+                            <p style="color:lightslategray;">¥299</p>
+                            <p style="color:lightslategray;">唯美搭配、童话重现、温软甜美、美味奇缘</p>
+                            <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/disney/products/alice-in-berryland">查看详情</a></h5>
+                        </sectiion>
+                    </div>
+                     <div id="tab-2" class="tab-pane fade">
+                        <a href="http://www.pantrysbest.com/cities/beijing/categories/gift-box/products/mini-cupcake-set"><img src="image/l.jpg" alt=""></a>
+                        <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:100px;top:-8px;">
+                            <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/gift-box/products/mini-cupcake-set" target="_blank">迷你纸杯礼盒</a></h4>
+                            <p style="color:lightslategray;" >¥180</p>
+                            <p style="color:lightslategray;">迷你纸杯，三种口味，臻享甜蜜，聚会好礼</p>
+                            <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/gift-box/products/mini-cupcake-set">查看详情</a></h5>
+                        </sectiion>
+                    </div>
+                     <div id="tab-3" class="tab-pane fade">
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cupcake"><img style="width:200px;height:200px;" src="image/j-1.jpg" alt=""></a>
+                            <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:100px;top:-8px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cupcake" target="_blank">榴莲纸杯蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥35</p>
+                                <p style="color:lightslategray;">个性鲜明、质地轻盈、馥郁甜蜜、唇齿榴香 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cupcake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                        <hr>
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cheese-mousse-cake"><img src="image/j-2.jpg" alt=""></a>
+                            <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:100px;top:235px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cheese-mousse-cake" target="_blank">榴莲乳酪慕斯蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥249 / ¥369</p>
+                                <p style="color:lightslategray;">慕斯轻盈、乳酪浓郁、柔滑如丝、唇齿榴香 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cheese-mousse-cake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                    </div>
+                    <div id="tab-4" class="tab-pane fade">
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/red-velvet-waltz-cake"><img style="width:200px;height:200px;" src="image/d-1.jpg" alt=""></a>
+                            <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:100px;top:-8px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/red-velvet-waltz-cake" target="_blank">红丝绒圆舞曲蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥249 / ¥369</p>
+                                <p style="color:lightslategray;">热情浓郁，馥郁芬芳，尽享果味，满口醇香 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/red-velvet-waltz-cake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                        <hr>
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/passion-fruit-cake"><img src="image/d-2.jpg" alt=""></a>
+                            <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:100px;top:235px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/passion-fruit-cake" target="_blank">热情百香果蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥249 / ¥369</p>
+                                <p style="color:lightslategray;">清新酸甜，香滑浓郁，享尽甜蜜，让人回味 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/passion-fruit-cake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                    </div>
+                    <div id="tab-5" class="tab-pane fade">
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passionfruit-cupcake"><img src="image/z-1.jpg" alt=""></a>
+                            <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:100px;top:-8px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passionfruit-cupcake" target="_blank">百香果纸杯蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥25</p>
+                                <p style="color:lightslategray;">质地轻盈，口感软滑，果香缭绕，让人回味</p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passionfruit-cupcake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                        <hr>
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passion-fruit-chocolate-cupcake"><img src="image/z-2.jpg" alt=""></a>
+                            <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:100px;top:235px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passion-fruit-chocolate-cupcake" target="_blank">百香果巧克力纸杯蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥25</p>
+                                <p style="color:lightslategray;">果香馥郁、口感丰富、酸甜清新、轻盈美妙</p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passion-fruit-chocolate-cupcake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                    </div>
+                    <div id="tab-6" class="tab-pane fade">
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/banana-cream"><img src="image/z-1.jpg" alt=""></a>
+                            <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:20px;top:-8px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/banana-cream" target="_blank">蛋奶香蕉派</a></h4>
+                                <p style="color:lightslategray;">¥159 / ¥199</p>
+                                <p style="color:lightslategray;">薄片香蕉，香草布丁，淡奶相融，清新草地，柔滑天空 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/banana-cream">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                        <hr>
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/razzleberry-cheese"><img src="image/z-2.jpg" alt=""></a>
+                            <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:-10px;top:235px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/razzleberry-cheese" target="_blank">综合梅果乳酪派</a></h4>
+                                <p style="color:lightslategray;">¥249</p>
+                                <p style="color:lightslategray;">优雅的黑，热烈的红，纯洁的白，带来初夏唇边的一抹感动 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/razzleberry-cheese">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                    </div>
+                     <div id="tab-7" class="tab-pane fade">
+                        <a href="http://www.pantrysbest.com/cities/beijing/categories/tartlets/products/walnut"><img src="image/t.jpg" alt=""></a>
+                        <sectiion class=" visible-md-block visible-lg-block" style="float:right;position:absolute;right:190px;top:-8px;">
+                            <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/tartlets/products/walnut" target="_blank">蜂蜜核桃挞</a></h4>
+                            <p style="color:lightslategray;" >¥169</p>
+                            <p style="color:lightslategray;">香脆的核桃，阳光的味道</p>
+                            <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/tartlets/products/walnut">查看详情</a></h5>
+                        </sectiion>
+                    </div>
+                     <div id="tab-8" class="tab-pane fade">
+                        <a href="http://www.pantrysbest.com/card"><img src="image/lp.jpg" alt=""></a>
+                    </div>
+                </div>
+                <!--礼盒-->
+                <!--<div class="panel panel-default  col-md-3">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            礼盒
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="list-group">
+                            <a href="#part-2" class="list-group-item">迷你纸杯礼盒</a>   
+                        </div>
+                    </div>
+                </div>-->
+                <!--<div class="panel  col-md-9">
+                    <div id="part-2" class="part">
+                        <a href="http://www.pantrysbest.com/cities/beijing/categories/gift-box/products/mini-cupcake-set"><img src="image/l.jpg" alt=""></a>
+                        <sectiion style="float:right;position:absolute;right:100px;">
+                            <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/gift-box/products/mini-cupcake-set" target="_blank">迷你纸杯礼盒</a></h4>
+                            <p style="color:lightslategray;" >¥180</p>
+                            <p style="color:lightslategray;">迷你纸杯，三种口味，臻享甜蜜，聚会好礼</p>
+                            <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/gift-box/products/mini-cupcake-set">查看详情</a></h5>
+                        </sectiion>
+                    </div>
+                </div>-->
+                <!--季节当选-->
+                <!--<div class="panel panel-default  col-md-3">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                季节当选
+                                </a>
+                            </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                         <div class="list-group">
+                            <a href="#part-3" class="list-group-item">榴莲纸杯蛋糕</a>
+                            <a href="#part-3" class="list-group-item">榴莲乳酪慕斯蛋糕</a>   
+                        </div>
+                    </div>
+                </div>-->
+                <!--<div class="panel  col-md-9">
+                    <div id="part-3" class="part">
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cupcake"><img style="width:200px;height:200px;" src="image/j-1.jpg" alt=""></a>
+                            <sectiion style="float:right;position:absolute;right:100px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cupcake" target="_blank">榴莲纸杯蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥35</p>
+                                <p style="color:lightslategray;">个性鲜明、质地轻盈、馥郁甜蜜、唇齿榴香 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cupcake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                        <hr>
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cheese-mousse-cake"><img src="image/j-2.jpg" alt=""></a>
+                            <sectiion style="float:right;position:absolute;right:100px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cheese-mousse-cake" target="_blank">榴莲乳酪慕斯蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥249 / ¥369</p>
+                                <p style="color:lightslategray;">慕斯轻盈、乳酪浓郁、柔滑如丝、唇齿榴香 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/seasonal-specials/products/durian-cheese-mousse-cake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                    </div>
+                </div>-->
+                <!--蛋糕-->
+                <!--<div class="panel panel-default col-md-3">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                             蛋糕
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                        <div class="list-group">
+                            <a href="#part-4" class="list-group-item">红丝绒圆舞曲蛋糕</a>
+                            <a href="#part-4" class="list-group-item">热情百香果蛋糕</a>   
+                        </div>
+                    </div>
+                </div>-->
+                <!--<div class="panel  col-md-9">
+                    <div id="part-4" class="part">
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/red-velvet-waltz-cake"><img style="width:200px;height:200px;" src="image/d-1.jpg" alt=""></a>
+                            <sectiion style="float:right;position:absolute;right:100px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/red-velvet-waltz-cake" target="_blank">红丝绒圆舞曲蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥249 / ¥369</p>
+                                <p style="color:lightslategray;">热情浓郁，馥郁芬芳，尽享果味，满口醇香 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/red-velvet-waltz-cake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                        <hr>
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/passion-fruit-cake"><img src="image/d-2.jpg" alt=""></a>
+                            <sectiion style="float:right;position:absolute;right:100px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/passion-fruit-cake" target="_blank">热情百香果蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥249 / ¥369</p>
+                                <p style="color:lightslategray;">清新酸甜，香滑浓郁，享尽甜蜜，让人回味 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cakes/products/passion-fruit-cake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                    </div>
+                </div>-->
+                <!--纸杯蛋糕-->
+                <!--<div class="panel panel-default col-md-3">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            纸杯蛋糕
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                        <div class="list-group">
+                            <a href="#part-5" class="list-group-item">百香果纸杯蛋糕</a>
+                            <a href="#part-5" class="list-group-item">百香果巧克力纸杯蛋糕</a>   
+                        </div>
+                    </div>
+                </div>-->
+                <!--<div class="panel  col-md-9">
+                    <div id="part-5" class="part">
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passionfruit-cupcake"><img src="image/z-1.jpg" alt=""></a>
+                            <sectiion style="float:right;position:absolute;right:100px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passionfruit-cupcake" target="_blank">百香果纸杯蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥25</p>
+                                <p style="color:lightslategray;">质地轻盈，口感软滑，果香缭绕，让人回味</p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passionfruit-cupcake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                        <hr>
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passion-fruit-chocolate-cupcake"><img src="image/z-2.jpg" alt=""></a>
+                            <sectiion style="float:right;position:absolute;right:100px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passion-fruit-chocolate-cupcake" target="_blank">百香果巧克力纸杯蛋糕</a></h4>
+                                <p style="color:lightslategray;">¥25</p>
+                                <p style="color:lightslategray;">果香馥郁、口感丰富、酸甜清新、轻盈美妙</p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/cupcakes/products/passion-fruit-chocolate-cupcake">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                    </div>
+                </div>-->
+                <!--派-->
+                <!--<div class="panel panel-default col-md-3">
+                    <div class="panel-heading" role="tab" id="headingSix">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                            派
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                        <div class="list-group">
+                            <a href="#part-6" class="list-group-item">蛋奶香蕉派</a>
+                            <a href="#part-6" class="list-group-item">综合梅果乳酪派</a>   
+                        </div>
+                    </div>
+                </div>-->
+                 <!--<div class="panel  col-md-9">
+                    <div id="part-6" class="part">
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/banana-cream"><img src="image/z-1.jpg" alt=""></a>
+                            <sectiion style="float:right;position:absolute;right:20px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/banana-cream" target="_blank">蛋奶香蕉派</a></h4>
+                                <p style="color:lightslategray;">¥159 / ¥199</p>
+                                <p style="color:lightslategray;">薄片香蕉，香草布丁，淡奶相融，清新草地，柔滑天空 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/banana-cream">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                        <hr>
+                        <div>
+                            <a href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/razzleberry-cheese"><img src="image/z-2.jpg" alt=""></a>
+                            <sectiion style="float:right;position:absolute;right:-10px;">
+                                <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/razzleberry-cheese" target="_blank">综合梅果乳酪派</a></h4>
+                                <p style="color:lightslategray;">¥249</p>
+                                <p style="color:lightslategray;">优雅的黑，热烈的红，纯洁的白，带来初夏唇边的一抹感动 </p>
+                                <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/pies/products/razzleberry-cheese">查看详情</a></h5>
+                            </sectiion>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- 挞-->
+                <!--<div class="panel panel-default col-md-3">
+                    <div class="panel-heading" role="tab" id="headingSeven">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                            挞
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                        <div class="list-group">
+                            <a href="#part-7" class="list-group-item">蜂蜜核桃挞</a> 
+                        </div>
+                    </div>
+                </div>-->
+                <!--<div class="panel  col-md-9">
+                    <div id="part-7" class="part">
+                        <a href="http://www.pantrysbest.com/cities/beijing/categories/tartlets/products/walnut"><img src="image/t.jpg" alt=""></a>
+                        <sectiion style="float:right;position:absolute;right:190px;">
+                            <h4><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/tartlets/products/walnut" target="_blank">蜂蜜核桃挞</a></h4>
+                            <p style="color:lightslategray;" >¥169</p>
+                            <p style="color:lightslategray;">香脆的核桃，阳光的味道</p>
+                            <h5><a style="color:black;" href="http://www.pantrysbest.com/cities/beijing/categories/tartlets/products/walnut">查看详情</a></h5>
+                        </sectiion>
+                    </div>
+                </div>-->
+                <!--礼品卡-->
+                <!--<div class="panel panel-default col-md-3">
+                    <div class="panel-heading" role="tab" id="headingEight">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+                            礼品卡
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                        <div class="list-group">
+                            <a href="#part-8" class="list-group-item">派悦坊礼品卡</a> 
+                        </div>
+                    </div>
+                </div>-->
+                <!--<div class="panel  col-md-9">
+                    <div id="part-8" class="part">
+                        <a href="http://www.pantrysbest.com/card"><img src="image/lp.jpg" alt=""></a>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        
+        <!--订购须知-->
+        <div class="container">
+            <div id="order">
+                <div id="order-header">
+                    <h2  style="color:#390c20;">订购须知&#x3000;&#x3000;&#x3000;<img src="image/footer-1.png" alt=""></h2>
+                    <img style="width:100%;" src="image/order.jpg" alt=""><br>
+                </div>
+                <div class="order-body" style="margin:20px;">
+                    <div class="order-one">
+                        <h5  style="color:#390c20;">配送服务时间：</h5>
+                        <ul>
+                            <li>我们的客服在线时间为每天9:00-21:00；送货时间是10:00-21:00</li>
+                            <li>北京需要提前5小时预订，北京当日订单截止到当日17:00，</li>
+                            <li>我们也欢迎您订购之后到门店自取</li>
+                        </ul>
+                    </div>
+                    <div class="order-two">
+                        <h5 style="color:#390c20;">产品食用小贴士：</h5>
+                        <ul>
+                            <li>所有产品均为当天现做，不含防腐剂，建议24小时使用完毕</li>
+                            <li>纸杯蛋糕类含有黄油和乳酪，如冷藏保存，建议在常温下回温1小时候再食用，风味更佳</li>
+                            <li>苹果派加热后食用，风味更佳</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--footer-->
+        <div class="footer"  style="background-color:white;">
+            <div class="container">
+                <div class="col-md-2"></div>
+                <div class="col-md-6">
+                    <img  src="image/footer-1.png" alt=""><br>
+                    <nav class="col-md-6" style="font-size:12px;">
+                        <p>订购邮箱</p>
+                        <p>order@pantrysbest.com </p>
+                        <p>北京市朝阳区神路街39号10幢3层4段92-93 </p>
+                    </nav>
+                </div>
+                <div class="col-md-4  visible-md-block visible-lg-block">
+                    <p>官方微博</p>
+                    <a href="http://weibo.com/piehouse?is_hot=1" target="_blank">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </div>
+                <div class="col-md-12  visible-md-block visible-lg-block" style="font-size:8px;text-align:center;">
+                    <span>Copyright 2010-2016 派悦坊，Ltd 京ICP备12046340 </span>
+                </div>
+            </div> 
+        </div>
+        <!--modal-login-->
+        <div class="modal fade" id="mymodal-login" tabindex="-1" role="dialog" aria-labelledby="myModal-LoginLabel"  >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h4>登 录</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="name" class="col-sm-3 control-label">用户名：</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="name" class="form-control" placeholder="输入注册邮箱/手机号" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-sm-3 control-label" >密码：</label>
+                                <div class="col-sm-4">
+                                    <input type="password" id="password">
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                    <label for="checkbox" class="col-sm-5 control-label">  
+                                            <input type="checkbox"> 保持登录状态
+                                    </label>
+                            </div> 
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success">登录</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!--modal-registe-->
+        <div class="modal fade" id="mymodal-register" tabindex="-1" role="dialog" aria-labelledby="myModal-registerLabel" >
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal" >×</a>
+                        <h4>注册</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="email" class="col-sm-3 control-label">Email：</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="#name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="col-sm-3 control-label">联系电话：</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="#phone" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-sm-3 control-label" >密码：</label>
+                                <div class="col-sm-4">
+                                    <input type="password" id="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="repassword" class="col-sm-3 control-label">请再次输入密码：</label>
+                                <div class="col-sm-4">
+                                    <input type="password" id="repassword">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success">注册</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >关闭</button>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="bootstrap/js/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
